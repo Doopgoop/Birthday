@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HAPPY BIRTHDAYYYYYY 💖💖💖</title>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+            font-family: Comic Sans MS, cursive;
+            animation: rainbowBG 1s infinite alternate;
+        }
+
+        @keyframes rainbowBG {
+            0% { background: red; }
+            25% { background: yellow; }
+            50% { background: green; }
+            75% { background: blue; }
+            100% { background: purple; }
+        }
+
+        h1 {
+            font-size: 60px;
+            margin-top: 40px;
+            color: white;
+            text-shadow: 0 0 20px black;
+            animation: shake 0.3s infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+            100% { transform: rotate(-2deg); }
+        }
+
+        .spin-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            position: absolute;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .marquee {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            font-size: 30px;
+            color: white;
+            text-shadow: 0 0 10px black;
+            animation: moveText 3s linear infinite;
+        }
+
+        @keyframes moveText {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(100%); }
+        }
+
+        .fake-popup {
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 30px red;
+            font-family: Arial;
+            z-index: 9999;
+            text-align: center;
+        }
+
+        .fake-popup button {
+            padding: 10px 20px;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>💀 YOU JUST GOT BIRTHDAY RICK ROLLED 💀</h1>
+
+    <!-- Spinning Images -->
+    <img src="https://i.imgur.com/4AiXzf8.jpeg" class="spin-img" style="top:100px; left:50px;">
+    <img src="https://i.imgur.com/4AiXzf8.jpeg" class="spin-img" style="top:300px; right:50px;">
+    <img src="https://i.imgur.com/4AiXzf8.jpeg" class="spin-img" style="bottom:100px; left:40%;">
+
+    <!-- Rick Roll Audio -->
+    <audio id="rickAudio" autoplay loop>
+        <source src="https://www.myinstants.com/media/sounds/rick-roll.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="marquee">
+        💀 YOU JUST GOT BIRTHDAY RICK ROLLED 💀 🎉💖🔥
+    </div>
+
+    <!-- Fake Popup -->
+    <div class="fake-popup" id="popup">
+        <h2>⚠ HAPPY BIRTHDAY ⚠</h2>
+        <p>Are you sure?<br>Are you sure?? 😈</p>
+        <button onclick="multiplyPopup()">Click to Close</button>
+    </div>
+
+    <script>
+        const audio = document.getElementById("rickAudio");
+        audio.volume = 1.0;
+
+        function multiplyPopup() {
+            alert("🎉 HAPPY BIRTHDAY 🎉\nAre you sure?\nAre you sure?? 😈");
+
+            const newPopup = document.getElementById("popup").cloneNode(true);
+            newPopup.style.top = Math.random() * 80 + "%";
+            newPopup.style.left = Math.random() * 80 + "%";
+            document.body.appendChild(newPopup);
+        }
+
+        window.onbeforeunload = function() {
+            return "Are you sure you want to leave? 😈";
+        };
+    </script>
+
+</body>
+</html>
