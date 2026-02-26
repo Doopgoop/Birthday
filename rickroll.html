@@ -84,6 +84,33 @@
             cursor: pointer;
             margin-top: 10px;
         }
+        .spin-rect {
+    width: 250px;
+    height: 350px;
+    position: absolute;
+    top: 120px;
+    left: 50px;
+    animation: spin 2s linear infinite;
+}
+
+.spin-square {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 250px;
+    left: 40%;
+    animation: spin 1.5s linear infinite;
+}
+
+.spin-circle {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    position: absolute;
+    top: 150px;
+    right: 50px;
+    animation: spin 1s linear infinite;
+}
     </style>
 </head>
 
@@ -92,9 +119,14 @@
     <h1>💀 YOU JUST GOT BIRTHDAY RICK ROLLED 💀</h1>
 
     <!-- Spinning Images -->
-    <img src="Assets/Screenshot 2026-02-26 214014.png" class="spin-img" style="top:100px; left:50px;">
-    <img src="Assets/Screenshot 2026-02-26 214033.png" class="spin-img" style="top:300px; right:50px;">
-    <img src="Assets/Screenshot 2026-02-26 214101.png" class="spin-img" style="bottom:100px; left:40%;">
+    <!-- Rectangle Image -->
+<img src="Assets/Screenshot 2026-02-26 214033.png" class="spin-rect">
+
+<!-- Square Image -->
+<img src="Assets/Screenshot 2026-02-26 214014.png" class="spin-square">
+
+<!-- Circle Image -->
+<img src="Assets/Screenshot 2026-02-26 214101.png" class="spin-circle">
 
     <!-- Rick Roll Audio -->
     <audio id="rickAudio" autoplay loop>
