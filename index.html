@@ -132,41 +132,23 @@
         <img class="kitty" src="Assets/Screenshot_2026-02-26_230239-removebg-preview.png">
     </div>
 
-    <button onclick="startExperience()">Click Here 🎁</button>
+    <button ><a href="rickroll.html">Click here</a>
+</button>
     
- <audio id="rickAudio" autoplay loop>
-        <source src="Assets/Wheatus - Teenage Dirtbag  Paste Studios, NYC (2019) - Paste Magazine.mp3" type="audio/mpeg">
-    </audio>
+ <audio id="birthdayAudio" autoplay>
+    <source src="Assets/music.mp3" type="audio/mp3">
+</audio>
 
     <!-- YouTube Player -->
     <div id="player"></div>
 
-    <script src="Assets/Wheatus - Teenage Dirtbag  Paste Studios, NYC (2019) - Paste Magazine.mp3"></script>
+    
 
     <script>
         let player;
 
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player', {
-                videoId: "PUT_VIDEO_ID_HERE", // 👈 replace this
-                playerVars: {
-                    autoplay: 0,
-                    controls: 0,
-                    loop: 1,
-                    playlist: "PUT_VIDEO_ID_HERE"
-                }
-            });
-        }
+      
 
-        function startExperience() {
-            if (player) {
-                player.playVideo(); // works because user clicked
-            }
-
-            setTimeout(() => {
-                window.location.href = "rickroll.html";
-            }, 2500);
-        }
 
         function createHeart() {
             const heart = document.createElement("div");
