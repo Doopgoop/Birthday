@@ -1,59 +1,179 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Happy Birthday 🎂</title>
+    <title>For The Birthday Girl 🎀</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f6d365, #fda085);
+            height: 100vh;
+            background: linear-gradient(to top, #ffd6e8, #fff5fa);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            text-align: center;
+            flex-direction: column;
+            overflow: hidden;
+            font-family: 'Pacifico', cursive;
+            animation: fadeIn 2s ease-in;
         }
 
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
         }
 
         h1 {
-            margin-bottom: 20px;
+            color: #ff69b4;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #ff8ec7;
+            font-size: 18px;
+        }
+
+        .volume-msg {
+            font-size: 14px;
+            color: #999;
+            margin-top: 5px;
         }
 
         button {
-            padding: 12px 25px;
-            font-size: 18px;
+            margin-top: 25px;
+            padding: 12px 30px;
             border: none;
-            border-radius: 25px;
-            background: #ff6b6b;
+            border-radius: 30px;
+            background: #ff69b4;
             color: white;
+            font-size: 16px;
             cursor: pointer;
             transition: 0.3s;
+            box-shadow: 0 0 15px #ff69b4;
         }
 
         button:hover {
-            background: #ff3b3b;
-            transform: scale(1.1);
+            background: #ff1493;
+            transform: scale(1.08);
+            box-shadow: 0 0 25px #ff1493;
         }
+
+        /* Swing */
+        .swing-container {
+            position: relative;
+            margin-top: 40px;
+            height: 250px;
+            animation: swing 3s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        .rope {
+            width: 4px;
+            height: 120px;
+            background: #d8a7b1;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .seat {
+            width: 120px;
+            height: 15px;
+            background: #ffb6d9;
+            position: absolute;
+            top: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+
+        /* Hello Kitty Sticker */
+        .kitty {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            animation: floatBounce 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatBounce {
+            from { transform: translateX(-50%) translateY(0px); }
+            to { transform: translateX(-50%) translateY(8px); }
+        }
+
+        @keyframes swing {
+            0% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+            100% { transform: rotate(-10deg); }
+        }
+
+        /* Floating Hearts */
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+        }
+
     </style>
 </head>
+
 <body>
 
-    <div class="card">
-        <h1>🎉 Happy Birthday! 🎂</h1>
-        <p>I made something special for you...</p>
-        <button onclick="goToSurprise()">Click for Surprise 🎁</button>
+    <h1>Hello Birthday Girl 💕</h1>
+    <p>I made something really special for you 🎀</p>
+    <div class="volume-msg">🔊 Turn your volume up ✨</div>
+
+    <div class="swing-container">
+        <div class="rope"></div>
+        <div class="seat"></div>
+        <img class="kitty" src="Assets/Screenshot_2026-02-26_230239-removebg-preview.png" alt="Hello Kitty">
     </div>
 
+    <button onclick="goToSurprise()">Click Here 🎁</button>
+
+    <!-- Music -->
+    <audio autoplay loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9d5b0f6d50.mp3?filename=romantic-background-112191.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Script -->
     <script>
         function goToSurprise() {
-            window.location.href = "rickroll.html";
+            window.location.href = "chaos.html";
         }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "💖";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        setInterval(createHeart, 400);
     </script>
 
 </body>
